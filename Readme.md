@@ -1,4 +1,5 @@
 A short note on working with git and github for members of Ajaba Labs
+
 Initial copying (cloning) of this repo into your machine. All of the following commands
 are written in command line (CL):
 1. Go to the directory you wish to place this porject
@@ -12,7 +13,7 @@ are written in command line (CL):
 
 Pushing changes into the original repo:
 1. If you wish to develop some changes, create a separate branch: git checkout -b 'add-new-models'
-2. Change the
+2. Change the code
 3. Add your changes to your local git repo: git add .
 4. Commit your changes: git commit -m "added new models"
 5. Push your changes into the branch of remote repo: git push origin add-new-models
