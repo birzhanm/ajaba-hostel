@@ -9,7 +9,7 @@ class Manager(models.Model):
     email = models.EmailField()
 
     def __str__(self):
-        print(self.first_name + self.last_name)
+        return self.first_name + ' ' + self.last_name
 
 
 
@@ -20,4 +20,4 @@ class Tenant(models.Model):
     last_name = models.CharField(max_length=50)
 
     def __str__(self):
-        print(self.first_name + self.last_name)
+        return self.first_name + self.last_name

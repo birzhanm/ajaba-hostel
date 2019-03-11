@@ -1,6 +1,7 @@
 import datetime
 from django.db import models
-from account.models import Manager, Tenant
+from django.db.models import F
+from accounts.models import Manager, Tenant
 from bookings.models import Booking
 
 
@@ -17,18 +18,18 @@ class Block(models.Model):
             count += room.get_total_capacity()
         return count
 
-    def get_available_capacity(self, date=datetime.date.today()):
+    def get_available_capacity(self, specific_date=datetime.date.today()):
         count=0
         for room in self.room_set.all():
-            count += room.get_available_capacity(date)
+            count += room.get_available_capacity(specific_date)
         return count
 
     def __str__(self):
-        print self.name
+        return self.name
 
 
 class Room(models.Model):
-    block = models.ForeignKey(Block)
+    block = models.ForeignKey(Block, on_delete=models.CASCADE)
     number = models.CharField(max_length=50)
     level = models.IntegerField()
     capacity = models.IntegerField()
@@ -36,7 +37,10 @@ class Room(models.Model):
     def get_total_capacity(self):
         return self.capacity
 
-    def get_available_capacity(self, date=datetime.date.today()):
-        num_bookings = self.booking_set.filter(date__gte=F('start_date'), date__lte=F('end_date')).count()
+    def get_available_capacity(self, specific_date=datetime.date.today()):
+        num_bookings = self.booking_set.filter(start_date__lte=specific_date, end_date__gte=specific_date).count()
         num_available = self.capacity - num_bookings
         return num_available
+
+    def __str__(self):
+        return self.block.name + ":" + self.number
