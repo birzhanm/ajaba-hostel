@@ -1,0 +1,11 @@
+{% extends 'rooms/base.html' %}
+
+{% block content %}
+<ul>
+{% for block in blocks %}
+<li>
+{{ block.name }}: {{ block.get_available_capacity }} available places
+</li>
+{% endfor %}
+</ul>
+{% endblock %}
