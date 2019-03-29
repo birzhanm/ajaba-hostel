@@ -7,6 +7,7 @@
 {% for room in rooms %}
 <li>
   Room {{ room.number }}: {{ room.get_available_capacity }} available places.
+  <a href="{% url 'bookings:checkin' pk=room.pk %}"><button>Check In</button></a>.
 </li>
 {% endfor %}
 </ul>

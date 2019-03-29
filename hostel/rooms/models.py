@@ -1,7 +1,7 @@
 import datetime
 from django.db import models
 from django.db.models import F
-from accounts.models import Manager, Tenant
+from accounts.models import Profile
 from bookings.models import Booking
 
 
@@ -10,7 +10,6 @@ class Block(models.Model):
     name = models.CharField(max_length=100)
     address = models.CharField(max_length=100)
     num_levels = models.IntegerField()
-    manager = models.ForeignKey(Manager, on_delete=models.CASCADE)
 
     def get_total_capacity(self):
         count=0

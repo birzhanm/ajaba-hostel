@@ -1,0 +1,26 @@
+{% extends 'payments/base.html' %}
+
+{% block title %}
+Checkin
+{% endblock %}
+
+{% block content %}
+<form action="" method="POST">
+  <article>
+    <label>
+      <span>Amount is $5.00</span>
+    </label>
+  </article>
+
+  <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key={{ stripe_pub }}
+    data-amount="500"
+    data-name="Stripe.com"
+    data-description="Widget"
+    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+    data-locale="auto"
+    data-zip-code="true">
+  </script>
+</form>
+{% endblock %}
