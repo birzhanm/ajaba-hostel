@@ -1,0 +1,14 @@
+{% block title %}
+Checkin Page
+{% endblock %}
+
+{% block content %}
+<h3>Please fill in the following information</h3>
+<form method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type='submit'>Submit</button>
+</form>
+
+<h3>Thanks for checking in</h3>
+{% endblock %}

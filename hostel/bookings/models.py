@@ -3,7 +3,7 @@ from django.db import models
 
 # Create your models here.
 class Booking(models.Model):
-    tenant = models.ForeignKey('accounts.Tenant', on_delete=models.CASCADE)
+    tenant = models.ForeignKey('accounts.Profile', on_delete=models.CASCADE)
     room = models.ForeignKey('rooms.Room', on_delete=models.CASCADE)
     start_date = models.DateField()
     end_date = models.DateField()

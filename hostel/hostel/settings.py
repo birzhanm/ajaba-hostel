@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'accounts',
     'rooms',
     'bookings',
+    'payments',
 ]
 
 MIDDLEWARE = [
@@ -121,3 +122,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STRIPE_PUBLIC_KEY = "dummy_stripe_public_key"
+STRIPE_PRIVATE_KEY = "dummy_stripe_privat_key"
