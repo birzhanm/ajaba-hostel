@@ -1,0 +1,27 @@
+{% extends 'rooms/base.html' %}
+
+{% block content %}
+<h1>{{ current_block.name }}</h1>
+<h2 class="text-center">{{ current_room.number }}</h2>
+<div class="row">
+  <div class="col py-2">
+    <div class="card h-10 text-white bg-dark">
+      <div class="card-body">
+        <h3>Description</h3>
+        <p class="card-text">
+          {{ current_room.description|linebreaksbr }}
+        </p>
+        <h3>Available Places</h3>
+        <p class="card-text">
+          This room has {{ room.get_available_capacity }} available places
+        </p>
+        <h3>Prices</h3>
+        <p class="card-text">
+        The daily rate for this room is: {{ room.daily_rate }}.
+        </p>
+        <a href="{% url 'bookings:checkin' pk=current_room.pk %}" class="btn btn-outline-primary">Check In</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

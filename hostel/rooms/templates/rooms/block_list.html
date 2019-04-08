@@ -1,18 +1,20 @@
 {% extends 'rooms/base.html' %}
 
 {% block content %}
-{% if user.is_authenticated %}
-<a href="{% url 'accounts:signout' %}">Logout</a>
-{% else %}
-<a href="{% url 'accounts:signin' %}">Login</a>
-{% endif %}
 <h1>Blocks</h1>
-<ul>
 {% for block in blocks %}
-<li>
-{{ block.name }}: {{ block.get_available_capacity }} available places
-<a href="{% url 'rooms:block_detail' pk=block.pk %}"><button>Choose</button></a>
-</li>
+<div class="row">
+  <div class="col py-2">
+    <div class="card h-10 text-white bg-dark">
+      <div class="card-body">
+        <h3 class="card-title">{{ block.name }}</h3>
+        <p class="card-text">
+          {{ block.get_available_capacity }} place available
+        </p>
+        <a href="{% url 'rooms:block_detail' pk=block.pk %}" class="btn btn-outline-primary">Details</a>
+      </div>
+    </div>
+  </div>
+</div>
 {% endfor %}
-</ul>
 {% endblock %}

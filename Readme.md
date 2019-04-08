@@ -1,2 +1,10 @@
-<h1>Ajaba Hostel</h1>
-Ajaba hostel is a hostel management tool for thousands of student hostels in developing countries. Many student hostels in developing countries still lack online registration system, primarily because student hostels do not generate as much revenue as ticket sales and similar services that can be ordered online. However, online management will only benefit both tenants and managers of the hostel. Ajaba hostel attempts to address this problem by developing a general purpose hostel management system which includes such features as checkin, checkout, online payment and feedback mechanism.
+<h2>Ajaba Hostel</h2>
+<h3>Aim of the Project</h3>
+To design a student hostel management system for universities located in developing countries.
+<h3>Team Members</h3>
+<ul>
+<li>Yeldana Aliyeva</li>
+<li>Yerik Issakul</li>
+<li>Arystan Amanzholov</li>
+<li>Birzhan Moldagaliyev</li>
+</ul>
