@@ -32,6 +32,9 @@ class Room(models.Model):
     number = models.CharField(max_length=50)
     level = models.IntegerField()
     capacity = models.IntegerField()
+    description = models.TextField(null=True, blank=True)
+    daily_rate = models.DecimalField(max_digits=5, decimal_places=2, default=5.00)
+
 
     def get_total_capacity(self):
         return self.capacity

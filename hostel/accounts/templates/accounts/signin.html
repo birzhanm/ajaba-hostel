@@ -1,5 +1,7 @@
 {% extends 'accounts/base.html' %}
 
+{% load crispy_forms_tags %}
+
 {% block title %}
 Signin Page
 {% endblock %}
@@ -7,8 +9,8 @@ Signin Page
 {% block content %}
 <form method="POST">
   {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Sign In</button>
+  {{ form|crispy }}
+  <button type="submit" class="btn btn-success">Sign In</button>
 </form>
 Not registered? Please, <a href="{% url 'accounts:signup' %}">Register</a>.
 {% endblock %}

@@ -2,13 +2,20 @@
 
 {% block content %}
 <h1>{{ current_block.name }}</h1>
-<h2>Rooms</h2>
-<ul>
+<h2 class="text-center">Rooms</h2>
 {% for room in rooms %}
-<li>
-  Room {{ room.number }}: {{ room.get_available_capacity }} available places.
-  <a href="{% url 'bookings:checkin' pk=room.pk %}"><button>Check In</button></a>.
-</li>
+<div class="row">
+  <div class="col py-2">
+    <div class="card h-10 text-white bg-dark">
+      <div class="card-body">
+        <h3 class="card-title">{{ room.number }}</h3>
+        <p class="card-text">
+          {{ room.get_available_capacity }} places available
+        </p>
+        <a href="{% url 'rooms:room_detail' pk=room.pk %}" class="btn btn-outline-primary">Details</a>
+      </div>
+    </div>
+  </div>
+</div>
 {% endfor %}
-</ul>
 {% endblock %}
