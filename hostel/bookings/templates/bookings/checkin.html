@@ -1,3 +1,7 @@
+{% extends 'bookings/base.html' %}
+
+{% load crispy_forms_tags %}
+
 {% block title %}
 Checkin Page
 {% endblock %}
@@ -6,8 +10,8 @@ Checkin Page
 <h3>Please fill in the following information</h3>
 <form method="POST">
   {% csrf_token %}
-  {{ form.as_p }}
-  <button type='submit'>Submit</button>
+  {{ form|crispy }}
+  <button class="btn btn-outline-primary" type='submit'>Submit</button>
 </form>
 
 <h3>Thanks for checking in</h3>
